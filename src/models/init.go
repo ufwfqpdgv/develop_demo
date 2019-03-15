@@ -32,7 +32,7 @@ func Init() {
 
 	log.Init(Config.Log_info_item)
 
-	CommerceDB = utils.InitDB(Config.DB_arr["Commerce"])
+	CommerceDB = utils.InitDB(Config.DB_arr["commerce"])
 
 	// RedisClient = utils.InitRedisClient(Config.Redis_item)
 	// RedisClusterClient = utils.InitRedisCluster(Config.Redis_cluster_item)

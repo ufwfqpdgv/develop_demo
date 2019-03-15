@@ -9,14 +9,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func PrivilegeInfoApi(c *gin.Context) {
+func CommentListsApi(c *gin.Context) {
 	defer base.RecoverFunc(c)
 
-	rq := &PrivilegeInfoRequest{}
+	rq := &CommentListsRequest{}
 	err := c.ShouldBind(rq)
 	log.Infof(base.NowFunc()+"Request:%+v", *rq)
 	if err == nil {
-		rsp, retCode := process_api.PrivilegeInfoApi(rq)
+		rsp, retCode := process_api.CommentListsApi(rq)
 		log.Infof(base.NowFunc()+"Response:%v,%+v", retCode, *rsp)
 		base.SendResponse(c, retCode, rsp)
 	} else {

@@ -4,12 +4,19 @@ import (
 	"samh_common_lib/base"
 )
 
-type PrivilegeInfoRequest struct {
+type CommentListsRequest struct {
 	base.SamhBaseRequest
+	ContentType         int   `form:"content_type" json:"content_type" binding:"-"`
+	FreshCommentNum     int   `form:"fresh_comment_num" json:"fresh_comment_num" binding:"required"`
+	WonderfulCommentNum int   `form:"wonderful_comment_num" json:"wonderful_comment_num" binding:"required"`
+	Ssid                int64 `form:"ssid" json:"ssid" binding:"required"`
+	SsidType            int   `form:"ssid_type" json:"ssid_type" binding:"-"`
 }
 
-type PrivilegeInfoResponse struct {
-	// VipPrivilegeArr []*VipPrivilege `json:"vip_privilege_arr"`
+type CommentListsResponse struct {
+	FreshWholeCommentArr     []*WholeComment `json:"fresh_whole_comment_arr,omitempty"`
+	WonderfulWholeCommentArr []*WholeComment `json:"wonderful_whole_comment_arr,omitempty"`
+	CommentSum               int64           `json:"comment_sum,omitempty"`
 }
 
 // 内部的
@@ -22,14 +29,11 @@ type InternalUserPrivilegeInfoResponse struct {
 }
 
 /* 请求其他服务的 */
-type OperationActivityRequest struct {
-	Uid        int64  `form:"uid" json:"uid"`
-	DeviceId   string `form:"udid" json:"udid"`
-	ActivityId int64  `form:"activity_id" json:"activity_id"`
+type MicroUsersRequest struct {
 }
 
-type OperationActivityResponse struct {
+type MicroUsersResponse struct {
 	Code base.SamhResponseCode `json:"status"`
-	Msg  string                `json:"msg"`
-	Data DataTemp1             `json:"data"`
+	Msg  string                `json:"message"`
+	Data UserBase              `json:"data"`
 }

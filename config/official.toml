@@ -3,8 +3,8 @@ sentry_dsn= "http://da3139a4014c431a9024a3b0b3eb9da7:c387db95d2384d83b594f984cf3
 
 [base_info]
     version = "0.1"
-    name = "samh-manhua"
-    port = 8033
+    name = "samh-comic"
+    port = 8701
     app_id = 6
 
 [log_info_item]
@@ -12,7 +12,7 @@ sentry_dsn= "http://da3139a4014c431a9024a3b0b3eb9da7:c387db95d2384d83b594f984cf3
     encoding="json"     # 输出格式 console 或 json，建议正式环境用json，其他console（简洁）
     stdout=false #同时输出到控制台
     development_mode=true # 开发模式，堆栈跟踪
-    path_filename = "/data1/logs/samh/manhua/log.log"
+    path_filename = "/data1/logs/samh/comic/log.log"
     # max_size=  128    # 每个日志文件保存的最大尺寸 单位：M
     # max_backups= 30   # 日志文件最多保存多少个备份
     # max_age=     7    # 文件最多保存多少天
@@ -33,7 +33,7 @@ sentry_dsn= "http://da3139a4014c431a9024a3b0b3eb9da7:c387db95d2384d83b594f984cf3
         db_name = "commerce"
         max_conns = 20
         time_out = 300
-        log_path = "/data1/logs/samh/manhua/"
+        log_path = "/data1/logs/samh/comic/"
         log_name = "log.log"
         [db_arr.commerce.table_name]
             a = "a"
@@ -45,7 +45,7 @@ sentry_dsn= "http://da3139a4014c431a9024a3b0b3eb9da7:c387db95d2384d83b594f984cf3
     password = "abc123"
     max_retries=3
     pool_size=200
-    prefix="manhua:" #此服务的redis key的前缀，推荐具体格式 服务名:业务名:表名，然后里存json，这样缓存如整张表的时候就可以直接根据json中的key(对应主键)来取了
+    prefix="comic:" #此服务的redis key的前缀，推荐具体格式 服务名:业务名:表名，然后里存json，这样缓存如整张表的时候就可以直接根据json中的key(对应主键)来取了
     time_out=604800 #86400*7
 
 [redis_cluster_item]
@@ -54,7 +54,7 @@ sentry_dsn= "http://da3139a4014c431a9024a3b0b3eb9da7:c387db95d2384d83b594f984cf3
     password = "gUcAFcWf#Dg4He7R"
     max_retries=3
     pool_size=200
-    prefix="manhua:" #此服务的redis key的前缀，推荐具体格式 服务名:表名（业务名），然后里存json，这样缓存如整张表的时候就可以直接根据json中的key(对应主键)来取了
+    prefix="comic:" #此服务的redis key的前缀，推荐具体格式 服务名:表名（业务名），然后里存json，这样缓存如整张表的时候就可以直接根据json中的key(对应主键)来取了
     time_out=604800 #86400*7
 
 [web]

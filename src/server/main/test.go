@@ -96,23 +96,23 @@ type Object struct {
 // // log.With(zap.string("key","value").Debug(retCode)
 // }
 
-func httpPostTest() {
-	rq := &JoinActivityRequest{
-		SamhBaseRequest: base.SamhBaseRequest{
-			Uid:      1,
-			DeviceId: "1",
-		},
-		ActivityId:    1,
-		RewardRuleId:  1,
-		PayType:       1,
-		IsPaypal:      0,
-		ClientType:    "android",
-		ClientVersion: "2.0.4",
-	}
-	rsp := &JoinActivityResponse{}
-	utils.HttpPost("http://test.samh.xndm.tech/api/v1/operation/join/activity",
-		rq, rsp, Config.Web.Http_request_timeout)
-}
+// func httpPostTest() {
+// rq := &JoinActivityRequest{
+// SamhBaseRequest: base.SamhBaseRequest{
+// Uid:      1,
+// DeviceId: "1",
+// },
+// ActivityId:    1,
+// RewardRuleId:  1,
+// PayType:       1,
+// IsPaypal:      0,
+// ClientType:    "android",
+// ClientVersion: "2.0.4",
+// }
+// rsp := &JoinActivityResponse{}
+// utils.HttpPost("http://test.samh.xndm.tech/api/v1/operation/join/activity",
+// rq, rsp, Config.Web.Http_request_timeout)
+// }
 
 type JoinActivityRequest struct {
 	base.SamhBaseRequest

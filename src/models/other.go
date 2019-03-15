@@ -1,19 +1,13 @@
 package models
 
-type VipLevelCode int
-
-const (
-	VipLevelCode_Gold VipLevelCode = iota + 1
-	VipLevelCode_Diamond
-)
-
-type DataTemp1 struct {
-	ProductItem *Product `json:"product_item,omitempty"`
+type WholeComment struct {
+	UserInfoItem *UserInfo `json:"user_info,omitempty"`
+	CommentItem  *Comment  `json:"comment,omitempty"`
 }
 
-type Product struct {
-	ProductId int64  `json:"product_id,omitempty"`
-	Price     int    `json:"price,omitempty"`
-	Detail    string `json:"detail,omitempty"`
-	Extra     string `json:"extra,omitempty"`
+type UserInfo struct {
+	Uid    int64  `json:"uid,omitempty" xorm:"not null pk INT(11)"`
+	Uname  string `json:"name,omitempty" xorm:"not null VARCHAR(20)"`
+	Ulevel int    `json:"level,omitempty" xorm:"not null TINYINT(4)"`
+	IsVip  int    `json:"is_vip,omitempty"`
 }

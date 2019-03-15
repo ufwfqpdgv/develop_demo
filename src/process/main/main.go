@@ -18,18 +18,23 @@ func init() {
 }
 
 func main() {
-	// PrivilegeInfoApiTest()
+	CommentListsApiTest()
 	// InternalUserPrivilegeInfoApiTest()
 }
 
-func PrivilegeInfoApiTest() {
+func CommentListsApiTest() {
 	log.Debug(base.NowFunc())
 	start := time.Now()
-	request := &PrivilegeInfoRequest{
-		SamhBaseRequest: base.SamhBaseRequest{Uid: 1, DeviceId: "1"},
+	request := &CommentListsRequest{
+		SamhBaseRequest:     base.SamhBaseRequest{Uid: 1, DeviceId: "1"},
+		ContentType:         0,
+		FreshCommentNum:     2,
+		WonderfulCommentNum: 3,
+		Ssid:                181120,
+		SsidType:            0,
 	}
 	log.Debug(request)
-	rsp, retCode := api.PrivilegeInfoApi(request)
+	rsp, retCode := api.CommentListsApi(request)
 	log.Debug(retCode, rsp)
 	cost := time.Since(start)
 	log.Debug(cost)

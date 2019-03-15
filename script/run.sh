@@ -1,9 +1,8 @@
 #!/bin/bash
 
-export GOPATH=${GOPATH}:$(pwd)
+source ./base_setting.sh
 
-env=$2
-server_name=samh-manhua
+cd ..
 
 if [[ $1 == "start" ]]
 then

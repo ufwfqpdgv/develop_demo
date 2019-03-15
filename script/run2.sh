@@ -1,7 +1,7 @@
 #!/bin/bash
 
 env=$2
-server_name=samh-manhua
+server_name=samh-comic
 
 if [[ $1 == "b" ]]
 then
@@ -10,7 +10,7 @@ then
     exit
 elif [[ $1 == "r" ]]
 then
-    cd ${server_name}
+    cd ${server_name}/script
     ./run.sh restart ${env}
 else
     echo "参数1 b:重新部署,r:重新运行"

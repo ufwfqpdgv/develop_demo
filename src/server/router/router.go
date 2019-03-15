@@ -14,9 +14,9 @@ func InitRouter() *gin.Engine {
 	// router.Use(custom_middleware.Log())
 	router.Use(gzip.Gzip(gzip.DefaultCompression))
 	/* 对外接口 */
-	router.GET("api/v1/vip/privilege_info", api.PrivilegeInfoApi)
+	router.GET("api/v1/comic/comment/lists", api.CommentListsApi)
 	/* 内部接口 */
-	router.POST("internal/api/v1/vip/user_privilege_info", api.InternalUserPrivilegeInfoApi)
+	// router.POST("internal/api/v1/vip/user_privilege_info", api.InternalUserPrivilegeInfoApi)
 
 	return router
 }
