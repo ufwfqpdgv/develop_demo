@@ -16,6 +16,18 @@ else
     echo "参数1 b:重新部署,r:重新运行"
 fi
 
+if [[ $1 == "l" ]]
+then
+    cd ${server_name}/script
+    ./log.sh l $2
+    exit
+elif [[ $1 == "ol" ]]
+then
+    cd ${server_name}/script
+    ./log.sh ol
+    exit
+fi
+
 if [[ $2 == "" ]]
 then
     echo "参数2缺失:local,dev,test,official"

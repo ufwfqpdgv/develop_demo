@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"models"
+	"samh_common_lib/utils/log"
 	"server/router"
 )
 
@@ -24,5 +25,8 @@ func main() {
 		WriteTimeout:   2 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
-	s.ListenAndServe()
+	err := s.ListenAndServe()
+	if err != nil {
+		log.Panic(err)
+	}
 }

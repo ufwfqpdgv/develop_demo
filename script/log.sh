@@ -14,6 +14,10 @@ elif [[ $1 == "t" ]]
 then
     ssh -t ${user_name}@${test_addr} "tail -f ${log_location}" $2
     exit
+elif [[ $1 == "t2" ]]
+then
+    ssh -t ${user_name2}@${test_addr2} "tail -f ${log_location}" $2
+    exit
 elif [[ $1 == "ol" ]]
 then
     vim ${log_location}
@@ -25,5 +29,9 @@ then
 elif [[ $1 == "ot" ]]
 then
     vim scp://${user_name}@${test_addr}/${log_location}
+    exit
+elif [[ $1 == "ot2" ]]
+then
+    vim scp://${user_name2}@${test_addr2}/${log_location}
     exit
 fi

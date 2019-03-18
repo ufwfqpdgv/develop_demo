@@ -32,6 +32,11 @@ then
     scp ${pack_path} ${user_name}@${test_addr}:${server_dir}/pack
     scp run2.sh ${user_name}@${test_addr}:${server_dir}
     exit
+elif [[ $1 == "st2" ]]
+then
+    scp ${pack_path} ${user_name2}@${test_addr2}:${server_dir}/pack
+    scp run2.sh ${user_name2}@${test_addr2}:${server_dir}
+    exit
 elif [[ $1 == "pt" ]]
 then
     mkdir -p ${server_name}/bin && mkdir -p ${server_name}/script

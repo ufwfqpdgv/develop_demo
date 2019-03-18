@@ -18,15 +18,17 @@
 
 #### 常用功能
 - auto_deploy.sh在编译的机上使用，
-- 开发、测试机直接重启服务可用上层server下的run2.sh b&&./run2.sh r env(dev或test)--会移除旧目录并解压缩包，so会是压缩包内的旧配置
-- script目录下的run.sh restart env(dev或test)）--更改配置后可用这个，不会还原配置）
+- 开发、测试机直接重启服务可用上层server下的run2.sh b&&./run2.sh r env(dev或test)--b参数会移除旧目录并解压缩包，so会是压缩包内的旧配置，仅重启的话只用./run2.sh r env(dev或test)就行
+- 重启或用script目录下的run.sh restart env(dev或test)）--更改配置后可用这个，不会还原配置）
 - 编译打包到开发、测试机并重启服务：./auto_deploy.sh
-- 本地编译运行并tail -f log：./auto_deploy.sh l    （后面可加命令，如 |grep db，下5项同）
+- 本地编译运行并tail -f log：./auto_deploy.sh l    （后面可加命令，如 |grep db，下6项同）
 - 编译打包到开发机并重启服务并tail -f log：./auto_deploy.sh d
 - 编译打包到测试机并重启服务并tail -f log：./auto_deploy.sh t
 - 本地log：./log l
 - 开发机log：./log d
 - 测试机log：./log t
+- 开发、测试机log：./run2.sh l
 - vim打开本地log：./log ol
 - vim打开开发机log：./log od
 - vim打开测试机log：./log ot
+- 开发、测试机vim打开log：./run2.sh ol
